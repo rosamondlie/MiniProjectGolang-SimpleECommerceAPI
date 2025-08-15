@@ -7,6 +7,6 @@ type Product struct {
 	Nama		string  `json:"nama"`
 	Harga int    `json:"harga"`
 	Stok int   `json:"stok"`
-	PenanggungJawab string `json:"penanggung_jawab"`
+	UserID uint `json:"user_id"`
 	Photo *string `json:"photo"`
 }

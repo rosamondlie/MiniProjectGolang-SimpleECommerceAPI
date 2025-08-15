@@ -17,3 +17,11 @@ type UpdateUserRequest struct {
 	Email    string  `json:"email" binding:"required,email"`
 	Status   *bool   `json:"status" binding:"required"`
 }
+
+type CreateProductRequest struct {
+	Nama   string `json:"nama" binding:"required"`
+	Harga  int    `json:"harga" binding:"required,min=0,numeric"`
+	Stok   int    `json:"stok" binding:"required,min=0,numeric"`
+	UserID uint   `json:"user_id" binding:"required"`
+	Photo  *string `json:"photo"`
+}

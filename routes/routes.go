@@ -6,16 +6,28 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRoutes(r *gin.Engine){
+func SetupRoutes(r *gin.Engine) {
 	apiRoutes := r.Group("")
 	{
 		adminRoutes := apiRoutes.Group("/admin")
 		{
-			adminRoutes.GET("/users", handlers.ListUser)
-			adminRoutes.POST("/users", handlers.CreateUser)
-			adminRoutes.GET("/users/:id", handlers.GetUserByID)
-			adminRoutes.PUT("/users/:id", handlers.UpdateUser)
-			adminRoutes.DELETE("/users/:id", handlers.DeleteUser)
+			userRoutes := adminRoutes.Group("/users")
+			{
+				userRoutes.GET("/", handlers.ListUser)
+				userRoutes.POST("/", handlers.CreateUser)
+				userRoutes.GET("/:id", handlers.GetUserByID)
+				userRoutes.PUT("/:id", handlers.UpdateUser)
+				userRoutes.DELETE("/:id", handlers.DeleteUser)
+			}
+			productRoutes := adminRoutes.Group("/products")
+			{
+				productRoutes.GET("/", handlers.ListProduct)
+				productRoutes.POST("/", handlers.CreateProduct)
+				productRoutes.GET("/:id", handlers.GetProductByID)
+				productRoutes.PUT("/:id", handlers.UpdateProduct)
+				productRoutes.DELETE("/:id", handlers.DeleteProduct)
+			}
+
 		}
 	}
 }
