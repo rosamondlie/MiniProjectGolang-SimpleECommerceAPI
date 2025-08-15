@@ -14,7 +14,7 @@ func SetupMySQL() {
 	password := ""
 	host := "localhost"
 	port := "3306"
-	dbname := "finpro_golang"
+	dbname := "db_finpro_golang"
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", user, password, host, port, dbname)
 

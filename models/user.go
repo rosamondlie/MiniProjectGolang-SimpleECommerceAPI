@@ -7,6 +7,5 @@ type User struct {
 	Nama     string  `json:"nama"`
 	Email    string  `json:"email"`
 	NoHP     *string `json:"no_hp"`
-	Password string  `json:"-"`
-	Status   bool    `json:"lulus" gorm:"default:0"`
+	Status   bool    `json:"status" gorm:"default:true"`
 }
