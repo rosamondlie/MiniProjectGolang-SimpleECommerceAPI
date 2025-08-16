@@ -19,9 +19,9 @@ type UpdateUserRequest struct {
 }
 
 type CreateProductRequest struct {
-	Nama   string `json:"nama" binding:"required"`
-	Harga  int    `json:"harga" binding:"required,min=0,numeric"`
-	Stok   int    `json:"stok" binding:"required,min=0,numeric"`
-	UserID uint   `json:"user_id" binding:"required"`
+	Nama   string `form:"nama" binding:"required"`
+	Harga  int    `form:"harga" binding:"required,min=0,numeric"`
+	Stok   int    `form:"stok" binding:"required,min=0,numeric"`
+	UserID uint   `form:"user_id" binding:"required"`
 	Photo  *string `json:"photo"`
 }

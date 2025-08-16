@@ -26,6 +26,7 @@ func SetupRoutes(r *gin.Engine) {
 				productRoutes.GET("/:id", handlers.GetProductByID)
 				productRoutes.PUT("/:id", handlers.UpdateProduct)
 				productRoutes.DELETE("/:id", handlers.DeleteProduct)
+				productRoutes.GET("/view/:filename", handlers.ViewPhotoProduct)
 			}
 
 		}
