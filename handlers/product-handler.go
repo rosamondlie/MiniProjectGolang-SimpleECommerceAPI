@@ -231,6 +231,6 @@ func ExportProduct(c *gin.Context) {
 		return
 	}
 
-	c.Header("Content-Disposition", "attachment; filename-users.xlsx")
+	c.Header("Content-Disposition", "attachment; filename=products.xlsx")
 	c.Data(http.StatusOK, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", buf.Bytes())
 }

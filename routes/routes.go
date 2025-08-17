@@ -32,6 +32,7 @@ func SetupRoutes(r *gin.Engine) {
 				productRoutes.PUT("/:id", handlers.UpdateProduct)
 				productRoutes.DELETE("/:id", handlers.DeleteProduct)
 				productRoutes.GET("/view/:filename", handlers.ViewPhotoProduct)
+				productRoutes.GET("/export", handlers.ExportProduct)
 			}
 			dashboardRoutes := adminRoutes.Group("/dashboard")
 			{
