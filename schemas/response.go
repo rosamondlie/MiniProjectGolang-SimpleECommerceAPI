@@ -16,3 +16,25 @@ type ListProductResponse struct {
 	UserID int     `json:"user_id"`
 	Photo  string  `json:"photo"`
 }
+
+type DashboardResponse struct {
+	TotalUsers int64 `json:"total_users"`
+	ActiveUsers int64 `json:"active_users"`
+	TotalProducts int64 `json:"total_products"`
+	TotalAvailProducts int64 `json:"total_available_products"`
+	LatestProducts []ListLatestProductResponse `json:"latest_products"`
+}
+
+type ListLatestProductResponse struct {
+	ID    int     `json:"id"`
+	Photo string  `json:"photo"`
+	Nama  string  `json:"nama"`
+	Date string `json:"date"`
+	Harga int `json:"harga"`
+}
+
+type ListProductLandingResponse struct {
+	Photo string  `json:"photo"`
+	Nama  string  `json:"nama"`
+	Harga int `json:"harga"`
+}

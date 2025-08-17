@@ -24,3 +24,4 @@ func SeederAdmin() {
 		configs.DB.Create(&admin)
 	}
 }
+

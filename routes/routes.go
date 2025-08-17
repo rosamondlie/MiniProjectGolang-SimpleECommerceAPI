@@ -9,6 +9,11 @@ import (
 func SetupRoutes(r *gin.Engine) {
 	apiRoutes := r.Group("")
 	{
+		publicRoutes := apiRoutes.Group("/products")
+		{
+			publicRoutes.GET("/latest", handlers.GetLatestProducts)
+			publicRoutes.GET("/available", handlers.GetAvailableProducts)
+		}
 		adminRoutes := apiRoutes.Group("/admin")
 		{
 			userRoutes := adminRoutes.Group("/users")
@@ -27,6 +32,10 @@ func SetupRoutes(r *gin.Engine) {
 				productRoutes.PUT("/:id", handlers.UpdateProduct)
 				productRoutes.DELETE("/:id", handlers.DeleteProduct)
 				productRoutes.GET("/view/:filename", handlers.ViewPhotoProduct)
+			}
+			dashboardRoutes := adminRoutes.Group("/dashboard")
+			{
+				dashboardRoutes.GET("/", handlers.GetDashboard)
 			}
 
 		}

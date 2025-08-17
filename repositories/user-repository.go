@@ -44,3 +44,15 @@ func DeleteUser(id uint)error{
 	}
 	return nil	
 }
+
+func CountUsers() (int64, error) {
+    var count int64
+    err := configs.DB.Model(&models.User{}).Count(&count).Error
+    return count, err
+}
+
+func CountActiveUsers() (int64, error) {
+    var count int64
+    err := configs.DB.Model(&models.User{}).Where("status = ?", true).Count(&count).Error
+    return count, err
+}
