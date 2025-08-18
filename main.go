@@ -3,6 +3,7 @@ package main
 import (
 	"final-project/configs"
 	"final-project/databases"
+	"final-project/databases/seeders"
 	"final-project/routes"
 	"fmt"
 
@@ -21,6 +22,9 @@ func main() {
 
 	// automigrate
 	databases.AutoMigrate()
+
+	//seeder
+	seeders.SeederAdmin()
 
 	//router
 	r := gin.Default()

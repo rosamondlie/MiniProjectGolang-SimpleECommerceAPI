@@ -37,3 +37,4 @@ func FormatTanggal(t time.Time) string {
 	year := t.Year()
 	return fmt.Sprintf("%d %s %d", day, month, year)
 }
+

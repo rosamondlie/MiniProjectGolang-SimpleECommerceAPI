@@ -2,6 +2,7 @@ package routes
 
 import (
 	"final-project/handlers"
+	"final-project/middlewares"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,12 +10,16 @@ import (
 func SetupRoutes(r *gin.Engine) {
 	apiRoutes := r.Group("")
 	{
+		authRoutes := apiRoutes.Group("/admin")
+		{
+			authRoutes.POST("/login", handlers.Login)
+		}
 		publicRoutes := apiRoutes.Group("/products")
 		{
 			publicRoutes.GET("/latest", handlers.GetLatestProducts)
 			publicRoutes.GET("/available", handlers.GetAvailableProducts)
 		}
-		adminRoutes := apiRoutes.Group("/admin")
+		adminRoutes := apiRoutes.Group("/admin", middlewares.AuthMiddleware())
 		{
 			userRoutes := adminRoutes.Group("/users")
 			{

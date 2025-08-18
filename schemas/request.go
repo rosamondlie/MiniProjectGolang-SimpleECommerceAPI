@@ -24,3 +24,8 @@ type CreateProductRequest struct {
 	Stok   *int    `form:"stok" binding:"min=0"`
 	UserID uint   `form:"user_id" binding:"required"`
 }
+
+type LoginRequest struct {
+    Login    string `json:"login" binding:"required"`   // email / no hp
+    Password string `json:"password" binding:"required"`
+}
