@@ -2,6 +2,7 @@ package configs
 
 import (
 	"fmt"
+	"os"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -10,11 +11,11 @@ import (
 var DB *gorm.DB
 
 func SetupMySQL() {
-	user := "root"
-	password := ""
-	host := "localhost"
-	port := "3306"
-	dbname := "db_finpro_golang"
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	dbname := os.Getenv("DB_NAME")
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", user, password, host, port, dbname)
 
